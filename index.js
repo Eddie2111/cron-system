@@ -1,5 +1,10 @@
-const express = require('express');
-const app = express();
+
+const http = require('http');
+const server = http.createServer((req,res)=>{
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+});
 const axios = require('axios');
 require('dotenv').config();
 
@@ -18,7 +23,7 @@ const cronJob = async()=>{
     })
 }
 
-app.listen(port,()=>{
+server.listen(port,()=>{
     setInterval(cronJob, 12000);
     console.log(port);
 })
