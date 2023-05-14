@@ -64,6 +64,66 @@ app.get("/badrequest", (req, res) => {
 app.get("/json", (req, res) => {
     res.json({ message: "a json response", status:200, method:['get',200,21.2,] });
 });
+app.get("/biglist", (req, res) => {
+    res.json(
+    [
+        {message: "a json response", status:200, method:['get',200,21.2,]},
+        {message: "a json response", status:200, method:['get',200,21.2,]},
+        {message: "a json response", status:200, method:['get',200,21.2,]},
+        {message: "a json response", status:200, method:['get',200,21.2,]},
+        {message: "a json response", status:200, method:['get',200,21.2,]},
+        {message: "a json response", status:200, method:['get',200,21.2,]},
+        {message: "a json response", status:200, method:['get',200,21.2,]},
+        {message: "a json response", status:200, method:['get',200,21.2,]},
+        {message: "a json response", status:200, method:['get',200,21.2,]},
+        {message: "a json response", status:200, method:['get',200,21.2,]},
+    ]
+        );
+});
+app.get("/empty", (req, res) => {
+    res.json({});
+});
+app.get("/bigjson", (req, res) => {
+    res.json(
+    {
+        message: "a json response",
+        status:200,
+        method:['get',200,21.2,],
+        object:{a:"a", b:"b", c:"c"},
+        array:["a","b","c"],
+        boolean:true,
+        number:123,
+        date:new Date(),
+        buffer:Buffer.from("whoop"),
+        null:null,
+        undefined:undefined,
+        error:"error",
+        html:"<p>some html</p>",
+        redirect:"/json",
+        notfound:"not found",
+        forbidden:"forbidden",
+        badrequest:"bad request",
+        json:{ message: "a json response", status:200, method:['get',200,21.2,] },
+        biglist:[
+            {message: "a json response", status:200, method:['get',200,21.2,]},
+            {message: "a json response", status:200, method:['get',200,21.2,]},
+            {message: "a json response", status:200, method:['get',200,21.2,]},
+            {message: "a json response", status:200, method:['get',200,21.2,]},
+            {message: "a json response", status:200, method:['get',200,21.2,]},
+            {message: "a json response", status:200, method:['get',200,21.2,]},
+        ],
+        empty:{},
+        bigjson:{
+            message: "a json response",
+            status:200,
+            method:['get',200,21.2,],
+            object:{a:"a", b:"b", c:"c"},
+            array:["a","b","c"],
+            boolean:true,
+        },
+    }
+        );
+});
 app.get("/object", (req, res) => {
     res.json({ message: "a object response", status:200, method:['get',200,21.2,], object:{a:"a", b:"b", c:"c"} });
 });
