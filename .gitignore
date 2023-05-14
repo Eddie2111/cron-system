@@ -1,0 +1,13 @@
+# Ignore build output
+build/
+dist/
+/node_modules/
+*.pyc
+
+# Ignore virtual environment files
+venv/
+.env
+
+# Ignore system files
+.DS_Store
+Thumbs.db
