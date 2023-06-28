@@ -141,6 +141,9 @@ const cronJob = ()=>{
         })
     }, 6000);
 }
+setInterval(() => {
+    cronJob();
+}, 3000);
 
 app.listen(port, ()=>{
     console.log('server at→', port)
