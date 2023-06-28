@@ -128,7 +128,7 @@ app.get("/object", (req, res) => {
     res.json({ message: "a object response", status:200, method:['get',200,21.2,], object:{a:"a", b:"b", c:"c"} });
 });
 
-const cronJob = async()=>{
+const cronJob = ()=>{
     const app1 = await axios.get("https://bdslp.onrender.com/",{withCredentials: true})
     const app2 = await axios.get("https://fleetology-auth.onrender.com",{withCredentials: true})
     setInterval(() => {
