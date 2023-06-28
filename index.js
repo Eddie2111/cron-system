@@ -131,14 +131,15 @@ app.get("/object", (req, res) => {
 const cronJob = async()=>{
     const app1 = await axios.get("https://bdslp.onrender.com/",{withCredentials: true})
     const app2 = await axios.get("https://fleetology-auth.onrender.com",{withCredentials: true})
-    
-    Promise.all([app1,app2]).then((res)=>{
-        //console.log(res[0].data);
-        //console.log(res[1].data);
-    })
-    .catch((err)=>{
-        //console.log(err);
-    })
+    setInterval(() => {
+        Promise.all([app1,app2]).then((res)=>{
+            console.log(res[0].data);
+            console.log(res[1].data);
+        })
+        .catch((err)=>{
+            //console.log(err);
+        })
+    }, 6000);
 }
 
 app.listen(port, ()=>{
