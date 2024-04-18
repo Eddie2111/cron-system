@@ -130,13 +130,15 @@ app.get("/object", (req, res) => {
 const cronJob = ()=>{
     const app1 = axios.get("https://bdslp.onrender.com/",{withCredentials: true})
     const app2 = axios.get("https://fleetology-auth.onrender.com",{withCredentials: true})
+    const app3 = axios.get("https://muzzplayer-service.onrender.com",{withCredentials: true})
     setInterval(() => {
-        Promise.all([app1,app2]).then((res)=>{
+        Promise.all([app1,app2,app3]).then((res)=>{
             console.log(res[0].data);
             console.log(res[1].data);
+            console.log(res[2].data);
         })
         .catch((err)=>{
-            //console.log(err);
+            console.log(err.message);
         })
     }, 6000);
 }
