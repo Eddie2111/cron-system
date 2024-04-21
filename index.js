@@ -34,8 +34,9 @@ const cronJob = (urls) => {
 
 const urls = [
   // "https://bdslp.onrender.com/",
-  "https://fleetology-auth.onrender.com",
-  "https://muzzplayer-service.onrender.com",
+  // "https://fleetology-auth.onrender.com",
+  // "https://muzzplayer-service.onrender.com",
+  "https://google.com"
 ];
 
 app.listen(port, () => {
